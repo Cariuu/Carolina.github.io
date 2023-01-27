@@ -1,0 +1,20 @@
+body{
+    background-color: #ebcf92;
+    font-family: Calibri;
+    padding: 10px 20px;
+}
+
+h1 {
+	color: #000000;
+	background-color: #ffbd33;
+	padding: 10px;
+	border-radius:0 20px;
+}
+h2 {
+	color: #047a04;
+	font-family: 'Franklin Gothic Medium';
+	font-style: oblique;
+	font-size: medium;
+}
+
+
