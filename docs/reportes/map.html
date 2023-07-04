@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Mapa de Móviles</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <style>
+      #map {
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <h2>Lista de Móviles Online</h2>
+    <ul id="moviles-list"></ul>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Aquí se genera la lista de móviles y se agrega al elemento <ul>
+      var moviles = [
+        {
+          clave_primaria: "auto",
+          patente: "ABC123",
+          detalles: "Detalles del auto",
+          precinto: "e5"
+        },
+        {
+          clave_primaria: "auto",
+          patente: "ABC1",
+          detalles: "chofer juan",
+          precinto: "c10"
+        },
+        {
+          clave_primaria: "moto",
+          patente: "DEF456",
+          detalles: "Detalles de la moto",
+          precinto: "c2"
+        },
+        {
+          clave_primaria: "camioneta",
+          patente: "GHI789",
+          detalles: "Detalles de la camioneta",
+          precinto: "c3"
+        },
+        {
+          clave_primaria: "camion",
+          patente: "JKL012",
+          detalles: "Detalles del camión",
+          precinto: "c4"
+        }
+      ];
+
+      var movilesList = document.getElementById("moviles-list");
+
+      for (var i = 0; i < moviles.length; i++) {
+        var movil = moviles[i];
+        var listItem = document.createElement("li");
+        listItem.textContent =
+          "Clave primaria: " +
+          movil.clave_primaria +
+          ", Patente: " +
+          movil.patente +
+          ", Detalles: " +
+          movil.detalles +
+          ", Precinto: " +
+          movil.precinto;
+        movilesList.appendChild(listItem);
+      }
+    </script>
+  </body>
+</html>
