@@ -41,4 +41,41 @@ document.addEventListener("DOMContentLoaded", function () {
         .addTo(map);
     });
   });
+var cantidadDisponible = 40;
+var cantidadOcupada = 0;
+
+function cambiarEstado(indice) {
+  var select = document.getElementById("estado-" + indice);
+  var disponible = document.getElementById("disponible");
+  var ocupado = document.getElementById("ocupado");
+
+  if (select.value === "disponible") {
+    disponible.textContent = --cantidadDisponible;
+    ocupado.textContent = ++cantidadOcupada;
+  } else if (select.value === "ocupado") {
+    disponible.textContent = ++cantidadDisponible;
+    ocupado.textContent = --cantidadOcupada;
+  }
+}
+
+function agregarMoviles() {
+  var movilesDiv = document.getElementById("moviles");
+
+  for (var i = 1; i <= 40; i++) {
+    var nombre = "1234" + i;
+
+    var movilDiv = document.createElement("div");
+    movilDiv.innerHTML = `
+      <p>Móvil ${nombre}:</p>
+      <select id="estado-${i}" onchange="cambiarEstado(${i})">
+        <option value="disponible">Disponible</option>
+        <option value="ocupado">Ocupado</option>
+      </select>
+    `;
+
+    movilesDiv.appendChild(movilDiv);
+  }
+}
+
+agregarMoviles();
   
